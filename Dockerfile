@@ -68,6 +68,7 @@ RUN \
   mkdir -p /go-agent /docker-entrypoint.d /go-working-dir /godata
 
 ADD docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
 
 COPY --from=gocd-agent-unzip /go-agent /go-agent
 # ensure that logs are printed to console output
