@@ -60,7 +60,7 @@ RUN \
   apk --no-cache upgrade && \
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
   adduser -D -u ${UID} -s /bin/bash -G root go && \
-  apk add --no-cache git openssh-client bash curl procps glibc-locale-en nodejs npm pnpm docker && \
+  apk add --no-cache git openssh-client bash curl procps glibc-locale-en npm pnpm docker && \
   curl --fail --location --silent --show-error "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.1%2B8/OpenJDK25U-jre_$(uname -m | sed -e s/86_//g)_linux_hotspot_25.0.1_8.tar.gz" --output /tmp/jre.tar.gz && \
   mkdir -p /gocd-jre && \
   tar -xf /tmp/jre.tar.gz -C /gocd-jre --strip 1 && \
